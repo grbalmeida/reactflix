@@ -1,43 +1,50 @@
 'use strict'
 
-import React, { PureComponent } from 'react'
+import React from 'react'
+import styled, { injectGlobal } from 'styled-components'
 
 import 'normalize.css'
 import 'milligram'
 
-class App extends PureComponent {
-  constructor () {
-    super()
-    this.state = {
-      title: '...',
-      Component: 'div'
-    }
-  }
+const App = () => (
+  <Container>
+    <Header>
+      <h1>Reactflix</h1>
+    </Header>
+    <Main>
+      Conteúdo
+    </Main>
+    <Footer>
+      &copy; 2018
+    </Footer>
+  </Container>
+)
 
-  getTitle () {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve('My app with async / await!')
-      }, 2000)
-    })
+injectGlobal`
+  html, body, div[data-js="app"] {
+    height: 100%;
   }
+`
 
-  async componentDidMount () {
-    const title = await import('components/title')
+const headerHeight = '60px'
+const footerHeight = '30px'
 
-    this.setState({
-      title: await this.getTitle(),
-      Component: title.default
-    })
-  }
+const Container = styled.div`
+  height: 100%;
+`
 
-  render () {
-    return (
-      <div>
-        <this.state.Component>{this.state.title}</this.state.Component>
-      </div>
-    )
-  }
-}
+const Header = styled.header`
+  height: ${headerHeight};
+  background: #333;
+`
+
+const Main = styled.main`
+  min-height: calc(100% - ${headerHeight} - ${footerHeight});
+`
+
+const Footer = styled.footer`
+  height: ${footerHeight};
+  background: #333;
+`
 
 export default App
