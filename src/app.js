@@ -18,7 +18,7 @@ const App = () => (
       <VideosList />
     </Main>
     <Footer>
-      &copy; 2018
+      &copy; {new Date().getFullYear()}
     </Footer>
   </Container>
 )
