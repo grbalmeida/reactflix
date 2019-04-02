@@ -11,5 +11,5 @@ export const registerVideo = ({ id, title }) => async (dispatch) => {
 
 export const addVideo = ({ id, title }) => ({
   type: ADD_VIDEO,
-  payload: { id, title }  
+  payload: { id, title }
 })
