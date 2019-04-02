@@ -1,5 +1,8 @@
 'use strict'
 
 import { combineReducers } from 'redux'
+import videos from './videos/index'
 
-export default combineReducers({})
+export default combineReducers({
+  videos
+})
