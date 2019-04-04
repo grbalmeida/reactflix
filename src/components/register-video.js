@@ -13,11 +13,26 @@ const RegisterVideo = ({ onSubmit }) => (
     <label htmlFor='title'>Título do vídeo:</label>
     <input type='text' id='title' name='title' />
     <button type='submit'>Cadastrar</button>
+    <ButtonClose type='button'>&times;</ButtonClose>
   </Form>
 )
 
 const Form = styled.form`
   padding: 10px;
+  position: relative;
+`
+
+const ButtonClose = styled.button`
+  border-radius: 50%;
+  font-size: 20px;
+  height: 30px;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 30px;
 `
 
 const mapDispatchToProps = (dispatch) => ({
